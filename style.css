@@ -1,0 +1,156 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body, html {
+    height: 100%; /* Ensures body and html take full height */
+}
+
+/* Container for background video and overlay */
+.container {
+    position: relative; /* Keep container relative */
+    height: 100%; /* Full height */
+    width: 100%;
+}
+
+/* Set video to fixed position */
+.back-video {
+    position: fixed; /* Use fixed positioning */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures video covers entire area */
+    z-index: -2; /* Keep the video behind the content */
+}
+
+.gradient-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)); /* Your gradient */
+    z-index: -1; /* Above video, below content */
+}
+
+/* Use flexbox to center content */
+.main {
+    position: relative;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 auto;
+    top: 15%;
+    width: 70%; /* Change this to your desired width */
+    max-width: 800px; /* Set a maximum width */
+    color: white;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 1s ease-in-out;
+}
+
+.title {
+    text-align: center;
+}
+
+.desc {
+    font-size: 25px;
+}
+
+.anime {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 2rem;
+    flex-wrap: wrap; /* Allow buttons to wrap */
+}
+
+/* Button Styling */
+.anime button {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    color: white;
+    border: 1px solid black;
+    font-weight: bold;
+}
+
+.anime button:nth-child(1) {
+    background-image: url("img/jjkbg.jpg");
+    transition: all 0.2s ease-in-out;
+}
+
+.anime button:nth-child(1):hover {
+    filter: drop-shadow(0 0 0.75rem rgb(0, 136, 255));
+}
+
+.anime button:nth-child(2) {
+    background-image: url("img/narutobg.jpg");
+    transition: all 0.2s ease-in-out;
+}
+
+.anime button:nth-child(2):hover {
+    filter: drop-shadow(0 0 0.75rem rgb(220, 93, 20));
+}
+
+.anime button:nth-child(3) {
+    background-image: url("img/opbg.jpg");
+    transition: all 0.2s ease-in-out;
+}
+
+.anime button:nth-child(3):hover {
+    filter: drop-shadow(0 0 0.75rem rgb(200, 71, 44));
+}
+
+.anime button:nth-child(4) {
+    background-image: url("img/dsbg.jpg");
+    transition: all 0.2s ease-in-out;
+}
+
+.anime button:nth-child(4):hover {
+    filter: drop-shadow(0 0 0.75rem rgb(255, 0, 0));
+}
+
+.link-image {
+    width: 225px;
+    height: 200px;
+}
+
+/* Media query for screens smaller than 768px (mobile/tablet) */
+@media screen and (max-width: 768px) {
+    .anime {
+        justify-content: space-around; /* Distribute buttons evenly */
+    }
+
+    .anime button {
+        width: 45%; /* Adjust button width so they stack two by two */
+        margin-bottom: 20px; /* Add space between buttons */
+    }
+
+    .anime button:nth-child(1),
+    .anime button:nth-child(2),
+    .anime button:nth-child(3),
+    .anime button:nth-child(4) {
+        height: 120px; /* Adjust height of buttons */
+    }
+}
+
+/* For very small screens like phones in portrait mode */
+@media screen and (max-width: 480px) {
+    .anime button {
+        width: 90%; /* Buttons will take almost the entire width */
+        height: 100px; /* Adjust height for very small screens */
+    }
+}
